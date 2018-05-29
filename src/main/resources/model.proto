@@ -1,0 +1,34 @@
+syntax = "proto3";
+package com.sys.org.protobuf;
+
+message BoardBasisProto {
+    int32 mealBasisId = 10;
+    string mealBasisCode = 20;
+}
+
+message ContractResponseProto {
+    int32 propertyId = 10;
+    int32 contractId = 20;
+    string stay_start_date = 30;
+    string stay_end_date = 40;
+    string booking_start_date= 50;
+    string booking_end_date= 60;
+    int32 currency_id= 70;
+    string currency_type= 80;
+    string contract_type= 90;
+    int32 supplier_id = 100;
+    string contract_basis = 110;
+    int32 commission_override = 120;
+    string is_complete_stay_only = 130;
+    int32 booking_source_id = 140;
+    string suppliedBy = 150;
+    string sourcePricePriority = 160;
+    string priceType = 170;
+}
+
+message PropertyProto {
+    int32 property_id = 10;
+    int32 property_rating = 20;
+    string name = 30;
+    string room_type = 40;
+}
