@@ -1,5 +1,7 @@
-package com.sys.org.spring.domain;
+package com.jactravel.spring.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
@@ -8,6 +10,17 @@ public class BoardBasis {
     @PrimaryKey
     private Integer mealBasisId;
     private String mealBasisCode;
+    @JsonIgnore
+    @Transient
+    private boolean isSync;
+
+    public boolean isSync() {
+        return isSync;
+    }
+
+    public void setSync(boolean sync) {
+        isSync = sync;
+    }
 
     public Integer getMealBasisId() {
         return mealBasisId;

@@ -1,7 +1,7 @@
-package com.sys.org.spring.controller;
+package com.jactravel.spring.controller;
 
-import com.sys.org.protobuf.Model;
-import com.sys.org.spring.component.Sender;
+import com.jactravel.kafka.messages.Model;
+import com.jactravel.spring.component.Sender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -19,7 +19,7 @@ public class BoardBasisController {
     @Autowired
     Sender sender;
 
-    @Value("${kafka.consumer.topic.name}")
+    @Value("${kafka.consumer.topic.name.board.basis}")
     String topicName;
 
     @GetMapping("/")
@@ -40,7 +40,7 @@ public class BoardBasisController {
                 .setMealBasisId(100)
                 .build();
 
-        sender.send(topicName, boardBasis.toString());
+        sender.send(topicName, boardBasis.toByteArray());
         return new ResponseEntity(boardBasis, header, HttpStatus.FOUND);
     }
 }

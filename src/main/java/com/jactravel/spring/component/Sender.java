@@ -1,4 +1,4 @@
-package com.sys.org.spring.component;
+package com.jactravel.spring.component;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,9 +14,9 @@ public class Sender {
             LoggerFactory.getLogger(Sender.class);
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, byte[]> kafkaTemplate;
 
-    public void send(String topic, String payload) {
+    public void send(String topic, byte[] payload) {
         LOGGER.info("sending payload='{}' to topic='{}'", payload, topic);
         kafkaTemplate.send(topic, payload);
     }

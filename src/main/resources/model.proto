@@ -1,34 +1,58 @@
 syntax = "proto3";
-package com.sys.org.protobuf;
+package com.jactravel.kafka.messages;
 
 message BoardBasisProto {
     int32 mealBasisId = 10;
     string mealBasisCode = 20;
 }
 
-message ContractResponseProto {
+message ContractProto {
     int32 propertyId = 10;
     int32 contractId = 20;
-    string stay_start_date = 30;
-    string stay_end_date = 40;
-    string booking_start_date= 50;
-    string booking_end_date= 60;
-    int32 currency_id= 70;
-    string currency_type= 80;
-    string contract_type= 90;
-    int32 supplier_id = 100;
-    string contract_basis = 110;
-    int32 commission_override = 120;
-    string is_complete_stay_only = 130;
-    int32 booking_source_id = 140;
+    string stayStartDate = 30;
+    string stayEndDate = 40;
+    string bookingStart_date = 50;
+    string bookingEndDate = 60;
+    int32 currencyId = 70;
+    string currencyType = 80;
+    string contractType = 90;
+    int32 supplierId = 100;
+    string contractBasis = 110;
+    int32 commissionOverride = 120;
+    string isCompleteStayOnly = 130;
+    int32 bookingSourceId = 140;
     string suppliedBy = 150;
     string sourcePricePriority = 160;
     string priceType = 170;
 }
 
 message PropertyProto {
-    int32 property_id = 10;
-    int32 property_rating = 20;
+    int32 propertyId = 10;
+    int32 propertyRating = 20;
     string name = 30;
-    string room_type = 40;
+    string roomType = 40;
+}
+
+message PropertyRoomTypeProto {
+    string room = 10;
+    int32 maxAdults = 20;
+    int32 maxAdultsWithChildren = 30;
+    int32 autoPromoteChildren = 50;
+    int32 maxChildren = 60;
+    int32 infants = 70;
+    int32 infantsOccupancy = 80;
+    int32 extraBedTypeId = 90;
+    int32 minOcc = 100;
+    int32 stdOcc = 110;
+    int32 maxOcc = 120;
+    int32 roomType = 130;
+    int32 youthsCountAsAdults = 140;
+    int32 youth = 150;
+    int32 roomView = 160;
+    int32 propertyId = 170;
+    int32 roomTypeId = 180;
+    int32 mealBasisId = 190;
+    int32 childAgeTo = 200;
+    int32 youthAgeFrom = 210;
+    int32 youthAgeTo = 220;
 }
