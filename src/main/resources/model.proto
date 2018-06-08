@@ -19,7 +19,7 @@ message ContractProto {
     int32 supplierId = 100;
     string contractBasis = 110;
     int32 commissionOverride = 120;
-    string isCompleteStayOnly = 130;
+    int32 isCompleteStayOnly = 130;
     int32 bookingSourceId = 140;
     string suppliedBy = 150;
     string sourcePricePriority = 160;

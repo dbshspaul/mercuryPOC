@@ -617,102 +617,97 @@ public final class Model {
     int getContractId();
 
     /**
-     * <code>string stay_start_date = 30;</code>
+     * <code>string stayStartDate = 30;</code>
      */
     java.lang.String getStayStartDate();
     /**
-     * <code>string stay_start_date = 30;</code>
+     * <code>string stayStartDate = 30;</code>
      */
     com.google.protobuf.ByteString
         getStayStartDateBytes();
 
     /**
-     * <code>string stay_end_date = 40;</code>
+     * <code>string stayEndDate = 40;</code>
      */
     java.lang.String getStayEndDate();
     /**
-     * <code>string stay_end_date = 40;</code>
+     * <code>string stayEndDate = 40;</code>
      */
     com.google.protobuf.ByteString
         getStayEndDateBytes();
 
     /**
-     * <code>string booking_start_date = 50;</code>
+     * <code>string bookingStart_date = 50;</code>
      */
     java.lang.String getBookingStartDate();
     /**
-     * <code>string booking_start_date = 50;</code>
+     * <code>string bookingStart_date = 50;</code>
      */
     com.google.protobuf.ByteString
         getBookingStartDateBytes();
 
     /**
-     * <code>string booking_end_date = 60;</code>
+     * <code>string bookingEndDate = 60;</code>
      */
     java.lang.String getBookingEndDate();
     /**
-     * <code>string booking_end_date = 60;</code>
+     * <code>string bookingEndDate = 60;</code>
      */
     com.google.protobuf.ByteString
         getBookingEndDateBytes();
 
     /**
-     * <code>int32 currency_id = 70;</code>
+     * <code>int32 currencyId = 70;</code>
      */
     int getCurrencyId();
 
     /**
-     * <code>string currency_type = 80;</code>
+     * <code>string currencyType = 80;</code>
      */
     java.lang.String getCurrencyType();
     /**
-     * <code>string currency_type = 80;</code>
+     * <code>string currencyType = 80;</code>
      */
     com.google.protobuf.ByteString
         getCurrencyTypeBytes();
 
     /**
-     * <code>string contract_type = 90;</code>
+     * <code>string contractType = 90;</code>
      */
     java.lang.String getContractType();
     /**
-     * <code>string contract_type = 90;</code>
+     * <code>string contractType = 90;</code>
      */
     com.google.protobuf.ByteString
         getContractTypeBytes();
 
     /**
-     * <code>int32 supplier_id = 100;</code>
+     * <code>int32 supplierId = 100;</code>
      */
     int getSupplierId();
 
     /**
-     * <code>string contract_basis = 110;</code>
+     * <code>string contractBasis = 110;</code>
      */
     java.lang.String getContractBasis();
     /**
-     * <code>string contract_basis = 110;</code>
+     * <code>string contractBasis = 110;</code>
      */
     com.google.protobuf.ByteString
         getContractBasisBytes();
 
     /**
-     * <code>int32 commission_override = 120;</code>
+     * <code>int32 commissionOverride = 120;</code>
      */
     int getCommissionOverride();
 
     /**
-     * <code>string is_complete_stay_only = 130;</code>
+     * <code>int32 isCompleteStayOnly = 130;</code>
      */
-    java.lang.String getIsCompleteStayOnly();
-    /**
-     * <code>string is_complete_stay_only = 130;</code>
-     */
-    com.google.protobuf.ByteString
-        getIsCompleteStayOnlyBytes();
+    int getIsCompleteStayOnly();
 
     /**
-     * <code>int32 booking_source_id = 140;</code>
+     * <code>int32 bookingSourceId = 140;</code>
      */
     int getBookingSourceId();
 
@@ -771,7 +766,7 @@ public final class Model {
       supplierId_ = 0;
       contractBasis_ = "";
       commissionOverride_ = 0;
-      isCompleteStayOnly_ = "";
+      isCompleteStayOnly_ = 0;
       bookingSourceId_ = 0;
       suppliedBy_ = "";
       sourcePricePriority_ = "";
@@ -876,10 +871,9 @@ public final class Model {
               commissionOverride_ = input.readInt32();
               break;
             }
-            case 1042: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 1040: {
 
-              isCompleteStayOnly_ = s;
+              isCompleteStayOnly_ = input.readInt32();
               break;
             }
             case 1120: {
@@ -947,10 +941,10 @@ public final class Model {
       return contractId_;
     }
 
-    public static final int STAY_START_DATE_FIELD_NUMBER = 30;
+    public static final int STAYSTARTDATE_FIELD_NUMBER = 30;
     private volatile java.lang.Object stayStartDate_;
     /**
-     * <code>string stay_start_date = 30;</code>
+     * <code>string stayStartDate = 30;</code>
      */
     public java.lang.String getStayStartDate() {
       java.lang.Object ref = stayStartDate_;
@@ -965,7 +959,7 @@ public final class Model {
       }
     }
     /**
-     * <code>string stay_start_date = 30;</code>
+     * <code>string stayStartDate = 30;</code>
      */
     public com.google.protobuf.ByteString
         getStayStartDateBytes() {
@@ -981,10 +975,10 @@ public final class Model {
       }
     }
 
-    public static final int STAY_END_DATE_FIELD_NUMBER = 40;
+    public static final int STAYENDDATE_FIELD_NUMBER = 40;
     private volatile java.lang.Object stayEndDate_;
     /**
-     * <code>string stay_end_date = 40;</code>
+     * <code>string stayEndDate = 40;</code>
      */
     public java.lang.String getStayEndDate() {
       java.lang.Object ref = stayEndDate_;
@@ -999,7 +993,7 @@ public final class Model {
       }
     }
     /**
-     * <code>string stay_end_date = 40;</code>
+     * <code>string stayEndDate = 40;</code>
      */
     public com.google.protobuf.ByteString
         getStayEndDateBytes() {
@@ -1015,10 +1009,10 @@ public final class Model {
       }
     }
 
-    public static final int BOOKING_START_DATE_FIELD_NUMBER = 50;
+    public static final int BOOKINGSTART_DATE_FIELD_NUMBER = 50;
     private volatile java.lang.Object bookingStartDate_;
     /**
-     * <code>string booking_start_date = 50;</code>
+     * <code>string bookingStart_date = 50;</code>
      */
     public java.lang.String getBookingStartDate() {
       java.lang.Object ref = bookingStartDate_;
@@ -1033,7 +1027,7 @@ public final class Model {
       }
     }
     /**
-     * <code>string booking_start_date = 50;</code>
+     * <code>string bookingStart_date = 50;</code>
      */
     public com.google.protobuf.ByteString
         getBookingStartDateBytes() {
@@ -1049,10 +1043,10 @@ public final class Model {
       }
     }
 
-    public static final int BOOKING_END_DATE_FIELD_NUMBER = 60;
+    public static final int BOOKINGENDDATE_FIELD_NUMBER = 60;
     private volatile java.lang.Object bookingEndDate_;
     /**
-     * <code>string booking_end_date = 60;</code>
+     * <code>string bookingEndDate = 60;</code>
      */
     public java.lang.String getBookingEndDate() {
       java.lang.Object ref = bookingEndDate_;
@@ -1067,7 +1061,7 @@ public final class Model {
       }
     }
     /**
-     * <code>string booking_end_date = 60;</code>
+     * <code>string bookingEndDate = 60;</code>
      */
     public com.google.protobuf.ByteString
         getBookingEndDateBytes() {
@@ -1083,19 +1077,19 @@ public final class Model {
       }
     }
 
-    public static final int CURRENCY_ID_FIELD_NUMBER = 70;
+    public static final int CURRENCYID_FIELD_NUMBER = 70;
     private int currencyId_;
     /**
-     * <code>int32 currency_id = 70;</code>
+     * <code>int32 currencyId = 70;</code>
      */
     public int getCurrencyId() {
       return currencyId_;
     }
 
-    public static final int CURRENCY_TYPE_FIELD_NUMBER = 80;
+    public static final int CURRENCYTYPE_FIELD_NUMBER = 80;
     private volatile java.lang.Object currencyType_;
     /**
-     * <code>string currency_type = 80;</code>
+     * <code>string currencyType = 80;</code>
      */
     public java.lang.String getCurrencyType() {
       java.lang.Object ref = currencyType_;
@@ -1110,7 +1104,7 @@ public final class Model {
       }
     }
     /**
-     * <code>string currency_type = 80;</code>
+     * <code>string currencyType = 80;</code>
      */
     public com.google.protobuf.ByteString
         getCurrencyTypeBytes() {
@@ -1126,10 +1120,10 @@ public final class Model {
       }
     }
 
-    public static final int CONTRACT_TYPE_FIELD_NUMBER = 90;
+    public static final int CONTRACTTYPE_FIELD_NUMBER = 90;
     private volatile java.lang.Object contractType_;
     /**
-     * <code>string contract_type = 90;</code>
+     * <code>string contractType = 90;</code>
      */
     public java.lang.String getContractType() {
       java.lang.Object ref = contractType_;
@@ -1144,7 +1138,7 @@ public final class Model {
       }
     }
     /**
-     * <code>string contract_type = 90;</code>
+     * <code>string contractType = 90;</code>
      */
     public com.google.protobuf.ByteString
         getContractTypeBytes() {
@@ -1160,19 +1154,19 @@ public final class Model {
       }
     }
 
-    public static final int SUPPLIER_ID_FIELD_NUMBER = 100;
+    public static final int SUPPLIERID_FIELD_NUMBER = 100;
     private int supplierId_;
     /**
-     * <code>int32 supplier_id = 100;</code>
+     * <code>int32 supplierId = 100;</code>
      */
     public int getSupplierId() {
       return supplierId_;
     }
 
-    public static final int CONTRACT_BASIS_FIELD_NUMBER = 110;
+    public static final int CONTRACTBASIS_FIELD_NUMBER = 110;
     private volatile java.lang.Object contractBasis_;
     /**
-     * <code>string contract_basis = 110;</code>
+     * <code>string contractBasis = 110;</code>
      */
     public java.lang.String getContractBasis() {
       java.lang.Object ref = contractBasis_;
@@ -1187,7 +1181,7 @@ public final class Model {
       }
     }
     /**
-     * <code>string contract_basis = 110;</code>
+     * <code>string contractBasis = 110;</code>
      */
     public com.google.protobuf.ByteString
         getContractBasisBytes() {
@@ -1203,53 +1197,28 @@ public final class Model {
       }
     }
 
-    public static final int COMMISSION_OVERRIDE_FIELD_NUMBER = 120;
+    public static final int COMMISSIONOVERRIDE_FIELD_NUMBER = 120;
     private int commissionOverride_;
     /**
-     * <code>int32 commission_override = 120;</code>
+     * <code>int32 commissionOverride = 120;</code>
      */
     public int getCommissionOverride() {
       return commissionOverride_;
     }
 
-    public static final int IS_COMPLETE_STAY_ONLY_FIELD_NUMBER = 130;
-    private volatile java.lang.Object isCompleteStayOnly_;
+    public static final int ISCOMPLETESTAYONLY_FIELD_NUMBER = 130;
+    private int isCompleteStayOnly_;
     /**
-     * <code>string is_complete_stay_only = 130;</code>
+     * <code>int32 isCompleteStayOnly = 130;</code>
      */
-    public java.lang.String getIsCompleteStayOnly() {
-      java.lang.Object ref = isCompleteStayOnly_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        isCompleteStayOnly_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string is_complete_stay_only = 130;</code>
-     */
-    public com.google.protobuf.ByteString
-        getIsCompleteStayOnlyBytes() {
-      java.lang.Object ref = isCompleteStayOnly_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        isCompleteStayOnly_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getIsCompleteStayOnly() {
+      return isCompleteStayOnly_;
     }
 
-    public static final int BOOKING_SOURCE_ID_FIELD_NUMBER = 140;
+    public static final int BOOKINGSOURCEID_FIELD_NUMBER = 140;
     private int bookingSourceId_;
     /**
-     * <code>int32 booking_source_id = 140;</code>
+     * <code>int32 bookingSourceId = 140;</code>
      */
     public int getBookingSourceId() {
       return bookingSourceId_;
@@ -1405,8 +1374,8 @@ public final class Model {
       if (commissionOverride_ != 0) {
         output.writeInt32(120, commissionOverride_);
       }
-      if (!getIsCompleteStayOnlyBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 130, isCompleteStayOnly_);
+      if (isCompleteStayOnly_ != 0) {
+        output.writeInt32(130, isCompleteStayOnly_);
       }
       if (bookingSourceId_ != 0) {
         output.writeInt32(140, bookingSourceId_);
@@ -1469,8 +1438,9 @@ public final class Model {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(120, commissionOverride_);
       }
-      if (!getIsCompleteStayOnlyBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(130, isCompleteStayOnly_);
+      if (isCompleteStayOnly_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(130, isCompleteStayOnly_);
       }
       if (bookingSourceId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -1525,8 +1495,8 @@ public final class Model {
           .equals(other.getContractBasis());
       result = result && (getCommissionOverride()
           == other.getCommissionOverride());
-      result = result && getIsCompleteStayOnly()
-          .equals(other.getIsCompleteStayOnly());
+      result = result && (getIsCompleteStayOnly()
+          == other.getIsCompleteStayOnly());
       result = result && (getBookingSourceId()
           == other.getBookingSourceId());
       result = result && getSuppliedBy()
@@ -1550,29 +1520,29 @@ public final class Model {
       hash = (53 * hash) + getPropertyId();
       hash = (37 * hash) + CONTRACTID_FIELD_NUMBER;
       hash = (53 * hash) + getContractId();
-      hash = (37 * hash) + STAY_START_DATE_FIELD_NUMBER;
+      hash = (37 * hash) + STAYSTARTDATE_FIELD_NUMBER;
       hash = (53 * hash) + getStayStartDate().hashCode();
-      hash = (37 * hash) + STAY_END_DATE_FIELD_NUMBER;
+      hash = (37 * hash) + STAYENDDATE_FIELD_NUMBER;
       hash = (53 * hash) + getStayEndDate().hashCode();
-      hash = (37 * hash) + BOOKING_START_DATE_FIELD_NUMBER;
+      hash = (37 * hash) + BOOKINGSTART_DATE_FIELD_NUMBER;
       hash = (53 * hash) + getBookingStartDate().hashCode();
-      hash = (37 * hash) + BOOKING_END_DATE_FIELD_NUMBER;
+      hash = (37 * hash) + BOOKINGENDDATE_FIELD_NUMBER;
       hash = (53 * hash) + getBookingEndDate().hashCode();
-      hash = (37 * hash) + CURRENCY_ID_FIELD_NUMBER;
+      hash = (37 * hash) + CURRENCYID_FIELD_NUMBER;
       hash = (53 * hash) + getCurrencyId();
-      hash = (37 * hash) + CURRENCY_TYPE_FIELD_NUMBER;
+      hash = (37 * hash) + CURRENCYTYPE_FIELD_NUMBER;
       hash = (53 * hash) + getCurrencyType().hashCode();
-      hash = (37 * hash) + CONTRACT_TYPE_FIELD_NUMBER;
+      hash = (37 * hash) + CONTRACTTYPE_FIELD_NUMBER;
       hash = (53 * hash) + getContractType().hashCode();
-      hash = (37 * hash) + SUPPLIER_ID_FIELD_NUMBER;
+      hash = (37 * hash) + SUPPLIERID_FIELD_NUMBER;
       hash = (53 * hash) + getSupplierId();
-      hash = (37 * hash) + CONTRACT_BASIS_FIELD_NUMBER;
+      hash = (37 * hash) + CONTRACTBASIS_FIELD_NUMBER;
       hash = (53 * hash) + getContractBasis().hashCode();
-      hash = (37 * hash) + COMMISSION_OVERRIDE_FIELD_NUMBER;
+      hash = (37 * hash) + COMMISSIONOVERRIDE_FIELD_NUMBER;
       hash = (53 * hash) + getCommissionOverride();
-      hash = (37 * hash) + IS_COMPLETE_STAY_ONLY_FIELD_NUMBER;
-      hash = (53 * hash) + getIsCompleteStayOnly().hashCode();
-      hash = (37 * hash) + BOOKING_SOURCE_ID_FIELD_NUMBER;
+      hash = (37 * hash) + ISCOMPLETESTAYONLY_FIELD_NUMBER;
+      hash = (53 * hash) + getIsCompleteStayOnly();
+      hash = (37 * hash) + BOOKINGSOURCEID_FIELD_NUMBER;
       hash = (53 * hash) + getBookingSourceId();
       hash = (37 * hash) + SUPPLIEDBY_FIELD_NUMBER;
       hash = (53 * hash) + getSuppliedBy().hashCode();
@@ -1733,7 +1703,7 @@ public final class Model {
 
         commissionOverride_ = 0;
 
-        isCompleteStayOnly_ = "";
+        isCompleteStayOnly_ = 0;
 
         bookingSourceId_ = 0;
 
@@ -1866,9 +1836,8 @@ public final class Model {
         if (other.getCommissionOverride() != 0) {
           setCommissionOverride(other.getCommissionOverride());
         }
-        if (!other.getIsCompleteStayOnly().isEmpty()) {
-          isCompleteStayOnly_ = other.isCompleteStayOnly_;
-          onChanged();
+        if (other.getIsCompleteStayOnly() != 0) {
+          setIsCompleteStayOnly(other.getIsCompleteStayOnly());
         }
         if (other.getBookingSourceId() != 0) {
           setBookingSourceId(other.getBookingSourceId());
@@ -1966,7 +1935,7 @@ public final class Model {
 
       private java.lang.Object stayStartDate_ = "";
       /**
-       * <code>string stay_start_date = 30;</code>
+       * <code>string stayStartDate = 30;</code>
        */
       public java.lang.String getStayStartDate() {
         java.lang.Object ref = stayStartDate_;
@@ -1981,7 +1950,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string stay_start_date = 30;</code>
+       * <code>string stayStartDate = 30;</code>
        */
       public com.google.protobuf.ByteString
           getStayStartDateBytes() {
@@ -1997,7 +1966,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string stay_start_date = 30;</code>
+       * <code>string stayStartDate = 30;</code>
        */
       public Builder setStayStartDate(
           java.lang.String value) {
@@ -2010,7 +1979,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string stay_start_date = 30;</code>
+       * <code>string stayStartDate = 30;</code>
        */
       public Builder clearStayStartDate() {
         
@@ -2019,7 +1988,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string stay_start_date = 30;</code>
+       * <code>string stayStartDate = 30;</code>
        */
       public Builder setStayStartDateBytes(
           com.google.protobuf.ByteString value) {
@@ -2035,7 +2004,7 @@ public final class Model {
 
       private java.lang.Object stayEndDate_ = "";
       /**
-       * <code>string stay_end_date = 40;</code>
+       * <code>string stayEndDate = 40;</code>
        */
       public java.lang.String getStayEndDate() {
         java.lang.Object ref = stayEndDate_;
@@ -2050,7 +2019,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string stay_end_date = 40;</code>
+       * <code>string stayEndDate = 40;</code>
        */
       public com.google.protobuf.ByteString
           getStayEndDateBytes() {
@@ -2066,7 +2035,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string stay_end_date = 40;</code>
+       * <code>string stayEndDate = 40;</code>
        */
       public Builder setStayEndDate(
           java.lang.String value) {
@@ -2079,7 +2048,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string stay_end_date = 40;</code>
+       * <code>string stayEndDate = 40;</code>
        */
       public Builder clearStayEndDate() {
         
@@ -2088,7 +2057,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string stay_end_date = 40;</code>
+       * <code>string stayEndDate = 40;</code>
        */
       public Builder setStayEndDateBytes(
           com.google.protobuf.ByteString value) {
@@ -2104,7 +2073,7 @@ public final class Model {
 
       private java.lang.Object bookingStartDate_ = "";
       /**
-       * <code>string booking_start_date = 50;</code>
+       * <code>string bookingStart_date = 50;</code>
        */
       public java.lang.String getBookingStartDate() {
         java.lang.Object ref = bookingStartDate_;
@@ -2119,7 +2088,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string booking_start_date = 50;</code>
+       * <code>string bookingStart_date = 50;</code>
        */
       public com.google.protobuf.ByteString
           getBookingStartDateBytes() {
@@ -2135,7 +2104,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string booking_start_date = 50;</code>
+       * <code>string bookingStart_date = 50;</code>
        */
       public Builder setBookingStartDate(
           java.lang.String value) {
@@ -2148,7 +2117,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string booking_start_date = 50;</code>
+       * <code>string bookingStart_date = 50;</code>
        */
       public Builder clearBookingStartDate() {
         
@@ -2157,7 +2126,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string booking_start_date = 50;</code>
+       * <code>string bookingStart_date = 50;</code>
        */
       public Builder setBookingStartDateBytes(
           com.google.protobuf.ByteString value) {
@@ -2173,7 +2142,7 @@ public final class Model {
 
       private java.lang.Object bookingEndDate_ = "";
       /**
-       * <code>string booking_end_date = 60;</code>
+       * <code>string bookingEndDate = 60;</code>
        */
       public java.lang.String getBookingEndDate() {
         java.lang.Object ref = bookingEndDate_;
@@ -2188,7 +2157,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string booking_end_date = 60;</code>
+       * <code>string bookingEndDate = 60;</code>
        */
       public com.google.protobuf.ByteString
           getBookingEndDateBytes() {
@@ -2204,7 +2173,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string booking_end_date = 60;</code>
+       * <code>string bookingEndDate = 60;</code>
        */
       public Builder setBookingEndDate(
           java.lang.String value) {
@@ -2217,7 +2186,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string booking_end_date = 60;</code>
+       * <code>string bookingEndDate = 60;</code>
        */
       public Builder clearBookingEndDate() {
         
@@ -2226,7 +2195,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string booking_end_date = 60;</code>
+       * <code>string bookingEndDate = 60;</code>
        */
       public Builder setBookingEndDateBytes(
           com.google.protobuf.ByteString value) {
@@ -2242,13 +2211,13 @@ public final class Model {
 
       private int currencyId_ ;
       /**
-       * <code>int32 currency_id = 70;</code>
+       * <code>int32 currencyId = 70;</code>
        */
       public int getCurrencyId() {
         return currencyId_;
       }
       /**
-       * <code>int32 currency_id = 70;</code>
+       * <code>int32 currencyId = 70;</code>
        */
       public Builder setCurrencyId(int value) {
         
@@ -2257,7 +2226,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>int32 currency_id = 70;</code>
+       * <code>int32 currencyId = 70;</code>
        */
       public Builder clearCurrencyId() {
         
@@ -2268,7 +2237,7 @@ public final class Model {
 
       private java.lang.Object currencyType_ = "";
       /**
-       * <code>string currency_type = 80;</code>
+       * <code>string currencyType = 80;</code>
        */
       public java.lang.String getCurrencyType() {
         java.lang.Object ref = currencyType_;
@@ -2283,7 +2252,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string currency_type = 80;</code>
+       * <code>string currencyType = 80;</code>
        */
       public com.google.protobuf.ByteString
           getCurrencyTypeBytes() {
@@ -2299,7 +2268,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string currency_type = 80;</code>
+       * <code>string currencyType = 80;</code>
        */
       public Builder setCurrencyType(
           java.lang.String value) {
@@ -2312,7 +2281,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string currency_type = 80;</code>
+       * <code>string currencyType = 80;</code>
        */
       public Builder clearCurrencyType() {
         
@@ -2321,7 +2290,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string currency_type = 80;</code>
+       * <code>string currencyType = 80;</code>
        */
       public Builder setCurrencyTypeBytes(
           com.google.protobuf.ByteString value) {
@@ -2337,7 +2306,7 @@ public final class Model {
 
       private java.lang.Object contractType_ = "";
       /**
-       * <code>string contract_type = 90;</code>
+       * <code>string contractType = 90;</code>
        */
       public java.lang.String getContractType() {
         java.lang.Object ref = contractType_;
@@ -2352,7 +2321,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string contract_type = 90;</code>
+       * <code>string contractType = 90;</code>
        */
       public com.google.protobuf.ByteString
           getContractTypeBytes() {
@@ -2368,7 +2337,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string contract_type = 90;</code>
+       * <code>string contractType = 90;</code>
        */
       public Builder setContractType(
           java.lang.String value) {
@@ -2381,7 +2350,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string contract_type = 90;</code>
+       * <code>string contractType = 90;</code>
        */
       public Builder clearContractType() {
         
@@ -2390,7 +2359,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string contract_type = 90;</code>
+       * <code>string contractType = 90;</code>
        */
       public Builder setContractTypeBytes(
           com.google.protobuf.ByteString value) {
@@ -2406,13 +2375,13 @@ public final class Model {
 
       private int supplierId_ ;
       /**
-       * <code>int32 supplier_id = 100;</code>
+       * <code>int32 supplierId = 100;</code>
        */
       public int getSupplierId() {
         return supplierId_;
       }
       /**
-       * <code>int32 supplier_id = 100;</code>
+       * <code>int32 supplierId = 100;</code>
        */
       public Builder setSupplierId(int value) {
         
@@ -2421,7 +2390,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>int32 supplier_id = 100;</code>
+       * <code>int32 supplierId = 100;</code>
        */
       public Builder clearSupplierId() {
         
@@ -2432,7 +2401,7 @@ public final class Model {
 
       private java.lang.Object contractBasis_ = "";
       /**
-       * <code>string contract_basis = 110;</code>
+       * <code>string contractBasis = 110;</code>
        */
       public java.lang.String getContractBasis() {
         java.lang.Object ref = contractBasis_;
@@ -2447,7 +2416,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string contract_basis = 110;</code>
+       * <code>string contractBasis = 110;</code>
        */
       public com.google.protobuf.ByteString
           getContractBasisBytes() {
@@ -2463,7 +2432,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string contract_basis = 110;</code>
+       * <code>string contractBasis = 110;</code>
        */
       public Builder setContractBasis(
           java.lang.String value) {
@@ -2476,7 +2445,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string contract_basis = 110;</code>
+       * <code>string contractBasis = 110;</code>
        */
       public Builder clearContractBasis() {
         
@@ -2485,7 +2454,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string contract_basis = 110;</code>
+       * <code>string contractBasis = 110;</code>
        */
       public Builder setContractBasisBytes(
           com.google.protobuf.ByteString value) {
@@ -2501,13 +2470,13 @@ public final class Model {
 
       private int commissionOverride_ ;
       /**
-       * <code>int32 commission_override = 120;</code>
+       * <code>int32 commissionOverride = 120;</code>
        */
       public int getCommissionOverride() {
         return commissionOverride_;
       }
       /**
-       * <code>int32 commission_override = 120;</code>
+       * <code>int32 commissionOverride = 120;</code>
        */
       public Builder setCommissionOverride(int value) {
         
@@ -2516,7 +2485,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>int32 commission_override = 120;</code>
+       * <code>int32 commissionOverride = 120;</code>
        */
       public Builder clearCommissionOverride() {
         
@@ -2525,84 +2494,41 @@ public final class Model {
         return this;
       }
 
-      private java.lang.Object isCompleteStayOnly_ = "";
+      private int isCompleteStayOnly_ ;
       /**
-       * <code>string is_complete_stay_only = 130;</code>
+       * <code>int32 isCompleteStayOnly = 130;</code>
        */
-      public java.lang.String getIsCompleteStayOnly() {
-        java.lang.Object ref = isCompleteStayOnly_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          isCompleteStayOnly_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getIsCompleteStayOnly() {
+        return isCompleteStayOnly_;
       }
       /**
-       * <code>string is_complete_stay_only = 130;</code>
+       * <code>int32 isCompleteStayOnly = 130;</code>
        */
-      public com.google.protobuf.ByteString
-          getIsCompleteStayOnlyBytes() {
-        java.lang.Object ref = isCompleteStayOnly_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          isCompleteStayOnly_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string is_complete_stay_only = 130;</code>
-       */
-      public Builder setIsCompleteStayOnly(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setIsCompleteStayOnly(int value) {
+        
         isCompleteStayOnly_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string is_complete_stay_only = 130;</code>
+       * <code>int32 isCompleteStayOnly = 130;</code>
        */
       public Builder clearIsCompleteStayOnly() {
         
-        isCompleteStayOnly_ = getDefaultInstance().getIsCompleteStayOnly();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string is_complete_stay_only = 130;</code>
-       */
-      public Builder setIsCompleteStayOnlyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        isCompleteStayOnly_ = value;
+        isCompleteStayOnly_ = 0;
         onChanged();
         return this;
       }
 
       private int bookingSourceId_ ;
       /**
-       * <code>int32 booking_source_id = 140;</code>
+       * <code>int32 bookingSourceId = 140;</code>
        */
       public int getBookingSourceId() {
         return bookingSourceId_;
       }
       /**
-       * <code>int32 booking_source_id = 140;</code>
+       * <code>int32 bookingSourceId = 140;</code>
        */
       public Builder setBookingSourceId(int value) {
         
@@ -2611,7 +2537,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>int32 booking_source_id = 140;</code>
+       * <code>int32 bookingSourceId = 140;</code>
        */
       public Builder clearBookingSourceId() {
         
@@ -2880,12 +2806,12 @@ public final class Model {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 property_id = 10;</code>
+     * <code>int32 propertyId = 10;</code>
      */
     int getPropertyId();
 
     /**
-     * <code>int32 property_rating = 20;</code>
+     * <code>int32 propertyRating = 20;</code>
      */
     int getPropertyRating();
 
@@ -2900,11 +2826,11 @@ public final class Model {
         getNameBytes();
 
     /**
-     * <code>string room_type = 40;</code>
+     * <code>string roomType = 40;</code>
      */
     java.lang.String getRoomType();
     /**
-     * <code>string room_type = 40;</code>
+     * <code>string roomType = 40;</code>
      */
     com.google.protobuf.ByteString
         getRoomTypeBytes();
@@ -3005,19 +2931,19 @@ public final class Model {
               com.jactravel.kafka.messages.Model.PropertyProto.class, com.jactravel.kafka.messages.Model.PropertyProto.Builder.class);
     }
 
-    public static final int PROPERTY_ID_FIELD_NUMBER = 10;
+    public static final int PROPERTYID_FIELD_NUMBER = 10;
     private int propertyId_;
     /**
-     * <code>int32 property_id = 10;</code>
+     * <code>int32 propertyId = 10;</code>
      */
     public int getPropertyId() {
       return propertyId_;
     }
 
-    public static final int PROPERTY_RATING_FIELD_NUMBER = 20;
+    public static final int PROPERTYRATING_FIELD_NUMBER = 20;
     private int propertyRating_;
     /**
-     * <code>int32 property_rating = 20;</code>
+     * <code>int32 propertyRating = 20;</code>
      */
     public int getPropertyRating() {
       return propertyRating_;
@@ -3057,10 +2983,10 @@ public final class Model {
       }
     }
 
-    public static final int ROOM_TYPE_FIELD_NUMBER = 40;
+    public static final int ROOMTYPE_FIELD_NUMBER = 40;
     private volatile java.lang.Object roomType_;
     /**
-     * <code>string room_type = 40;</code>
+     * <code>string roomType = 40;</code>
      */
     public java.lang.String getRoomType() {
       java.lang.Object ref = roomType_;
@@ -3075,7 +3001,7 @@ public final class Model {
       }
     }
     /**
-     * <code>string room_type = 40;</code>
+     * <code>string roomType = 40;</code>
      */
     public com.google.protobuf.ByteString
         getRoomTypeBytes() {
@@ -3172,13 +3098,13 @@ public final class Model {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PROPERTY_ID_FIELD_NUMBER;
+      hash = (37 * hash) + PROPERTYID_FIELD_NUMBER;
       hash = (53 * hash) + getPropertyId();
-      hash = (37 * hash) + PROPERTY_RATING_FIELD_NUMBER;
+      hash = (37 * hash) + PROPERTYRATING_FIELD_NUMBER;
       hash = (53 * hash) + getPropertyRating();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + ROOM_TYPE_FIELD_NUMBER;
+      hash = (37 * hash) + ROOMTYPE_FIELD_NUMBER;
       hash = (53 * hash) + getRoomType().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3427,13 +3353,13 @@ public final class Model {
 
       private int propertyId_ ;
       /**
-       * <code>int32 property_id = 10;</code>
+       * <code>int32 propertyId = 10;</code>
        */
       public int getPropertyId() {
         return propertyId_;
       }
       /**
-       * <code>int32 property_id = 10;</code>
+       * <code>int32 propertyId = 10;</code>
        */
       public Builder setPropertyId(int value) {
         
@@ -3442,7 +3368,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>int32 property_id = 10;</code>
+       * <code>int32 propertyId = 10;</code>
        */
       public Builder clearPropertyId() {
         
@@ -3453,13 +3379,13 @@ public final class Model {
 
       private int propertyRating_ ;
       /**
-       * <code>int32 property_rating = 20;</code>
+       * <code>int32 propertyRating = 20;</code>
        */
       public int getPropertyRating() {
         return propertyRating_;
       }
       /**
-       * <code>int32 property_rating = 20;</code>
+       * <code>int32 propertyRating = 20;</code>
        */
       public Builder setPropertyRating(int value) {
         
@@ -3468,7 +3394,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>int32 property_rating = 20;</code>
+       * <code>int32 propertyRating = 20;</code>
        */
       public Builder clearPropertyRating() {
         
@@ -3548,7 +3474,7 @@ public final class Model {
 
       private java.lang.Object roomType_ = "";
       /**
-       * <code>string room_type = 40;</code>
+       * <code>string roomType = 40;</code>
        */
       public java.lang.String getRoomType() {
         java.lang.Object ref = roomType_;
@@ -3563,7 +3489,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string room_type = 40;</code>
+       * <code>string roomType = 40;</code>
        */
       public com.google.protobuf.ByteString
           getRoomTypeBytes() {
@@ -3579,7 +3505,7 @@ public final class Model {
         }
       }
       /**
-       * <code>string room_type = 40;</code>
+       * <code>string roomType = 40;</code>
        */
       public Builder setRoomType(
           java.lang.String value) {
@@ -3592,7 +3518,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string room_type = 40;</code>
+       * <code>string roomType = 40;</code>
        */
       public Builder clearRoomType() {
         
@@ -3601,7 +3527,7 @@ public final class Model {
         return this;
       }
       /**
-       * <code>string room_type = 40;</code>
+       * <code>string roomType = 40;</code>
        */
       public Builder setRoomTypeBytes(
           com.google.protobuf.ByteString value) {
@@ -5479,32 +5405,32 @@ public final class Model {
     java.lang.String[] descriptorData = {
       "\n\025resources/model.proto\022\034com.jactravel.k" +
       "afka.messages\"=\n\017BoardBasisProto\022\023\n\013meal" +
-      "BasisId\030\n \001(\005\022\025\n\rmealBasisCode\030\024 \001(\t\"\255\003\n" +
+      "BasisId\030\n \001(\005\022\025\n\rmealBasisCode\030\024 \001(\t\"\233\003\n" +
       "\rContractProto\022\022\n\npropertyId\030\n \001(\005\022\022\n\nco" +
-      "ntractId\030\024 \001(\005\022\027\n\017stay_start_date\030\036 \001(\t\022" +
-      "\025\n\rstay_end_date\030( \001(\t\022\032\n\022booking_start_" +
-      "date\0302 \001(\t\022\030\n\020booking_end_date\030< \001(\t\022\023\n\013" +
-      "currency_id\030F \001(\005\022\025\n\rcurrency_type\030P \001(\t" +
-      "\022\025\n\rcontract_type\030Z \001(\t\022\023\n\013supplier_id\030d" +
-      " \001(\005\022\026\n\016contract_basis\030n \001(\t\022\033\n\023commissi" +
-      "on_override\030x \001(\005\022\036\n\025is_complete_stay_on" +
-      "ly\030\202\001 \001(\t\022\032\n\021booking_source_id\030\214\001 \001(\005\022\023\n" +
-      "\nsuppliedBy\030\226\001 \001(\t\022\034\n\023sourcePricePriorit" +
-      "y\030\240\001 \001(\t\022\022\n\tpriceType\030\252\001 \001(\t\"^\n\rProperty" +
-      "Proto\022\023\n\013property_id\030\n \001(\005\022\027\n\017property_r" +
-      "ating\030\024 \001(\005\022\014\n\004name\030\036 \001(\t\022\021\n\troom_type\030(" +
-      " \001(\t\"\321\003\n\025PropertyRoomTypeProto\022\014\n\004room\030\n" +
-      " \001(\t\022\021\n\tmaxAdults\030\024 \001(\005\022\035\n\025maxAdultsWith" +
-      "Children\030\036 \001(\005\022\033\n\023autoPromoteChildren\0302 " +
-      "\001(\005\022\023\n\013maxChildren\030< \001(\005\022\017\n\007infants\030F \001(" +
-      "\005\022\030\n\020infantsOccupancy\030P \001(\005\022\026\n\016extraBedT" +
-      "ypeId\030Z \001(\005\022\016\n\006minOcc\030d \001(\005\022\016\n\006stdOcc\030n " +
-      "\001(\005\022\016\n\006maxOcc\030x \001(\005\022\021\n\010roomType\030\202\001 \001(\005\022\034" +
-      "\n\023youthsCountAsAdults\030\214\001 \001(\005\022\016\n\005youth\030\226\001" +
-      " \001(\005\022\021\n\010roomView\030\240\001 \001(\005\022\023\n\npropertyId\030\252\001" +
-      " \001(\005\022\023\n\nroomTypeId\030\264\001 \001(\005\022\024\n\013mealBasisId" +
-      "\030\276\001 \001(\005\022\023\n\nchildAgeTo\030\310\001 \001(\005\022\025\n\014youthAge" +
-      "From\030\322\001 \001(\005\022\023\n\nyouthAgeTo\030\334\001 \001(\005b\006proto3"
+      "ntractId\030\024 \001(\005\022\025\n\rstayStartDate\030\036 \001(\t\022\023\n" +
+      "\013stayEndDate\030( \001(\t\022\031\n\021bookingStart_date\030" +
+      "2 \001(\t\022\026\n\016bookingEndDate\030< \001(\t\022\022\n\ncurrenc" +
+      "yId\030F \001(\005\022\024\n\014currencyType\030P \001(\t\022\024\n\014contr" +
+      "actType\030Z \001(\t\022\022\n\nsupplierId\030d \001(\005\022\025\n\rcon" +
+      "tractBasis\030n \001(\t\022\032\n\022commissionOverride\030x" +
+      " \001(\005\022\033\n\022isCompleteStayOnly\030\202\001 \001(\005\022\030\n\017boo" +
+      "kingSourceId\030\214\001 \001(\005\022\023\n\nsuppliedBy\030\226\001 \001(\t" +
+      "\022\034\n\023sourcePricePriority\030\240\001 \001(\t\022\022\n\tpriceT" +
+      "ype\030\252\001 \001(\t\"[\n\rPropertyProto\022\022\n\npropertyI" +
+      "d\030\n \001(\005\022\026\n\016propertyRating\030\024 \001(\005\022\014\n\004name\030" +
+      "\036 \001(\t\022\020\n\010roomType\030( \001(\t\"\321\003\n\025PropertyRoom" +
+      "TypeProto\022\014\n\004room\030\n \001(\t\022\021\n\tmaxAdults\030\024 \001" +
+      "(\005\022\035\n\025maxAdultsWithChildren\030\036 \001(\005\022\033\n\023aut" +
+      "oPromoteChildren\0302 \001(\005\022\023\n\013maxChildren\030< " +
+      "\001(\005\022\017\n\007infants\030F \001(\005\022\030\n\020infantsOccupancy" +
+      "\030P \001(\005\022\026\n\016extraBedTypeId\030Z \001(\005\022\016\n\006minOcc" +
+      "\030d \001(\005\022\016\n\006stdOcc\030n \001(\005\022\016\n\006maxOcc\030x \001(\005\022\021" +
+      "\n\010roomType\030\202\001 \001(\005\022\034\n\023youthsCountAsAdults" +
+      "\030\214\001 \001(\005\022\016\n\005youth\030\226\001 \001(\005\022\021\n\010roomView\030\240\001 \001" +
+      "(\005\022\023\n\npropertyId\030\252\001 \001(\005\022\023\n\nroomTypeId\030\264\001" +
+      " \001(\005\022\024\n\013mealBasisId\030\276\001 \001(\005\022\023\n\nchildAgeTo" +
+      "\030\310\001 \001(\005\022\025\n\014youthAgeFrom\030\322\001 \001(\005\022\023\n\nyouthA" +
+      "geTo\030\334\001 \001(\005b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

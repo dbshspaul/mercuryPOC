@@ -1,7 +1,9 @@
 package com.jactravel.spring.domain;
 
 import com.datastax.driver.core.LocalDate;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jactravel.spring.domain.idClass.ContractPK;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
@@ -10,7 +12,7 @@ public class Contract {
     @PrimaryKey
     private ContractPK contractPK;
     private LocalDate stayStartSate;
-    private LocalDate staySndDate;
+    private LocalDate stayEndDate;
     private LocalDate bookingStartSate;
     private LocalDate bookingEndSate;
     private Integer currencyId;
@@ -24,6 +26,18 @@ public class Contract {
     private String suppliedBy;
     private String sourcePricePriority;
     private String priceType;
+
+    @JsonIgnore
+    @Transient
+    private boolean isSync;
+
+    public boolean isSync() {
+        return isSync;
+    }
+
+    public void setSync(boolean sync) {
+        isSync = sync;
+    }
 
     public ContractPK getContractPK() {
         return contractPK;
@@ -41,12 +55,12 @@ public class Contract {
         this.stayStartSate = stayStartSate;
     }
 
-    public LocalDate getStaySndDate() {
-        return staySndDate;
+    public LocalDate getStayEndDate() {
+        return stayEndDate;
     }
 
-    public void setStaySndDate(LocalDate staySndDate) {
-        this.staySndDate = staySndDate;
+    public void setStayEndDate(LocalDate stayEndDate) {
+        this.stayEndDate = stayEndDate;
     }
 
     public LocalDate getBookingStartSate() {
