@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Arrays;
 
 @org.springframework.web.bind.annotation.RestController
-public class BoardBasisController {
+public class TestController {
 
     @Autowired
     Sender sender;

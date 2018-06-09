@@ -2,9 +2,13 @@ package com.jactravel.spring.configuration;
 
 import com.jactravel.spring.domain.BoardBasis;
 import com.jactravel.spring.domain.Contract;
+import com.jactravel.spring.domain.Property;
+import com.jactravel.spring.domain.PropertyRoomType;
 import com.jactravel.spring.domain.idClass.ContractPK;
 import com.jactravel.spring.ignitecache.store.BoardBasisCacheStore;
 import com.jactravel.spring.ignitecache.store.ContractCacheStore;
+import com.jactravel.spring.ignitecache.store.PropertyCacheStore;
+import com.jactravel.spring.ignitecache.store.PropertyRoomTypeCacheStore;
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
 import org.apache.ignite.Ignition;
@@ -62,6 +66,20 @@ public class IgniteConfiguration {
     public IgniteCache<Integer, BoardBasis> getBoardBasisCache() {
         LOGGER.info("creating boardBasisCache Cache");
         return createCache("boardBasisCache", BoardBasisCacheStore.class);
+    }
+
+    @Bean(name = "propertyCache")
+    @Lazy
+    public IgniteCache<Integer, Property> getPropertyCache() {
+        LOGGER.info("creating propertyCache Cache");
+        return createCache("propertyCache", PropertyCacheStore.class);
+    }
+
+    @Bean(name = "boardBasisCache")
+    @Lazy
+    public IgniteCache<Integer, PropertyRoomType> getPropertyRoomTypeCache() {
+        LOGGER.info("creating boardBasisCache Cache");
+        return createCache("boardBasisCache", PropertyRoomTypeCacheStore.class);
     }
 
     private IgniteCache createCache(String cacheName, Class clazz) {

@@ -12,7 +12,7 @@ import org.springframework.data.cassandra.core.mapping.Table;
 public class Property {
     @PrimaryKey
     private Integer propertyId;
-    private String propertyRating;
+    private Integer propertyRating;
     private String name;
     private String roomType;
     @JsonIgnore
@@ -35,11 +35,11 @@ public class Property {
         this.propertyId = propertyId;
     }
 
-    public String getPropertyRating() {
+    public Integer getPropertyRating() {
         return propertyRating;
     }
 
-    public void setPropertyRating(String propertyRating) {
+    public void setPropertyRating(Integer propertyRating) {
         this.propertyRating = propertyRating;
     }
 

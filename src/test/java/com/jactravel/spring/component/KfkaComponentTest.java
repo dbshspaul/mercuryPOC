@@ -89,4 +89,12 @@ class KfkaComponentTest {
         Assertions.assertEquals(contract, contractCache.get(contractPK));
     }
 
+    @Test
+    void propertyRoomTypeReceive() {
+    }
+
+    @Test
+    void propertyReceive() {
+    }
+
 }
