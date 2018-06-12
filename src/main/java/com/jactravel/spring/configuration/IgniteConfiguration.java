@@ -11,6 +11,7 @@ import com.jactravel.spring.ignitecache.store.PropertyCacheStore;
 import com.jactravel.spring.ignitecache.store.PropertyRoomTypeCacheStore;
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
+import org.apache.ignite.IgniteCluster;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.cache.CacheMode;
 import org.apache.ignite.configuration.CacheConfiguration;
@@ -36,6 +37,7 @@ public class IgniteConfiguration {
     @Bean(name = "ignite")
     @Lazy
     public Ignite getIgnite() {
+        Ignition.setClientMode(true);
         org.apache.ignite.configuration.IgniteConfiguration cfg = new org.apache.ignite.configuration.IgniteConfiguration();
 
         DataStorageConfiguration storageCfg = new DataStorageConfiguration();
@@ -49,7 +51,8 @@ public class IgniteConfiguration {
         cfg.setDiscoverySpi(tcpDiscoverySpi);
 
         Ignite ignite = Ignition.start(cfg);
-        ignite.active(true);
+        IgniteCluster cluster = ignite.cluster();
+        cluster.active(true);
         LOGGER.info(">>>>>>>>>>>>>>>>Ignite  Persistent Store Node Started successfully");
         return ignite;
     }
