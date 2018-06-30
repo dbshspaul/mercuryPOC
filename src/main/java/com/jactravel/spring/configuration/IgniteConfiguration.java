@@ -78,11 +78,11 @@ public class IgniteConfiguration {
         return createCache("propertyCache", PropertyCacheStore.class);
     }
 
-    @Bean(name = "boardBasisCache")
+    @Bean(name = "propertyRoomTypeCache")
     @Lazy
     public IgniteCache<Integer, PropertyRoomType> getPropertyRoomTypeCache() {
         LOGGER.info("creating boardBasisCache Cache");
-        return createCache("boardBasisCache", PropertyRoomTypeCacheStore.class);
+        return createCache("propertyRoomTypeCache", PropertyRoomTypeCacheStore.class);
     }
 
     private IgniteCache createCache(String cacheName, Class clazz) {

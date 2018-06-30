@@ -1,8 +1,7 @@
 package com.jactravel.spring.controller;
 
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
 class SnapshotControllerTest {
     @Test

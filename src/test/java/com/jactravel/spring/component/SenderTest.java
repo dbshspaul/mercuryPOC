@@ -1,8 +1,6 @@
 package com.jactravel.spring.component;
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
 class SenderTest {
     @Test

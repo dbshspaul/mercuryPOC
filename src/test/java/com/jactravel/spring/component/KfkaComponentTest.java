@@ -2,16 +2,27 @@ package com.jactravel.spring.component;
 
 import com.datastax.driver.core.LocalDate;
 import com.jactravel.kafka.messages.Model;
+import com.jactravel.spring.App;
 import com.jactravel.spring.domain.BoardBasis;
 import com.jactravel.spring.domain.Contract;
 import com.jactravel.spring.domain.idClass.ContractPK;
 import org.apache.ignite.IgniteCache;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.assertj.core.api.Assertions;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-class KfkaComponentTest {
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = {App.class, Sender.class})
+@TestPropertySource(
+        locations = "classpath:application.properties")
+@AutoConfigureMockMvc
+public class KfkaComponentTest {
     @Autowired
     Sender sender;
 
@@ -27,7 +38,7 @@ class KfkaComponentTest {
     IgniteCache<Integer, BoardBasis> boardBasisIgniteCache;
 
     @Test
-    void boardBasisReceive() {
+    public void boardBasisReceive() {
         Model.BoardBasisProto boardBasis = Model.BoardBasisProto.newBuilder()
                 .setMealBasisCode("C100")
                 .setMealBasisId(100)
@@ -39,11 +50,12 @@ class KfkaComponentTest {
         basis.setMealBasisCode("c100");
         basis.setSync(false);
 
-        Assertions.assertEquals(basis, boardBasisIgniteCache.get(100));
+        Assertions.assertThat(boardBasisIgniteCache.get(100).getMealBasisId()).isEqualTo(basis.getMealBasisId());
+        Assertions.assertThat(boardBasisIgniteCache.get(100).isSync()).isEqualTo(basis.isSync());
     }
 
     @Test
-    void contractReceive() {
+    public void contractReceive() {
         Model.ContractProto contractProto = Model.ContractProto.newBuilder()
                 .setContractId(12)
                 .setPropertyId(32)
@@ -86,15 +98,15 @@ class KfkaComponentTest {
         contract.setSupplierId(43535);
         contract.setSync(false);
 
-        Assertions.assertEquals(contract, contractCache.get(contractPK));
+        Assertions.assertThat(contractCache.get(contractPK).getContractPK()).isEqualTo(contract.getContractPK());
+}
+
+    @Test
+    public void propertyRoomTypeReceive() {
     }
 
     @Test
-    void propertyRoomTypeReceive() {
-    }
-
-    @Test
-    void propertyReceive() {
+    public void propertyReceive() {
     }
 
 }
