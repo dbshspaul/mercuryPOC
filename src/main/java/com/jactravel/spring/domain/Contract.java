@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-@Table("board_basis")
+@Table("contract")
 public class Contract {
     @PrimaryKey
     private ContractPK contractPK;

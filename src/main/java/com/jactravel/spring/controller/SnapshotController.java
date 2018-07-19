@@ -1,110 +1,75 @@
 package com.jactravel.spring.controller;
 
-import com.jactravel.spring.domain.BoardBasis;
-import com.jactravel.spring.domain.Contract;
-import com.jactravel.spring.domain.Property;
-import com.jactravel.spring.domain.PropertyRoomType;
-import com.jactravel.spring.domain.idClass.ContractPK;
-import com.jactravel.spring.repositories.BoardBasisRepository;
-import com.jactravel.spring.repositories.ContractRepository;
-import com.jactravel.spring.repositories.PropertyRepository;
-import com.jactravel.spring.repositories.PropertyRoomTypeRepository;
-import org.apache.ignite.IgniteCache;
-import org.apache.ignite.cache.query.QueryCursor;
-import org.apache.ignite.cache.query.ScanQuery;
+import com.jactravel.spring.component.SnapshotJob;
+import org.quartz.*;
+import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.cache.Cache;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 public class SnapshotController {
     private static final Logger LOGGER = LoggerFactory.getLogger(SnapshotController.class);
 
-    @Autowired
-    IgniteCache<Integer, BoardBasis> boardBasisIgniteCache;
-    @Autowired
-    IgniteCache<Integer, Property> propertyIgniteCache;
-    @Autowired
-    IgniteCache<Integer, PropertyRoomType> propertyRoomTypeIgniteCache;
-    @Autowired
-    IgniteCache<ContractPK, Contract> contractIgniteCache;
-
-    @Autowired
-    BoardBasisRepository boardBasisRepository;
-    @Autowired
-    ContractRepository contractRepository;
-    @Autowired
-    PropertyRepository propertyRepository;
-    @Autowired
-    PropertyRoomTypeRepository propertyRoomTypeRepository;
-
-    @GetMapping(value = "/sync", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(path = "/syncstart", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public ResponseEntity<?> autoSyncTask() {
-        LOGGER.info(">>>>>>>>>>>>>>>>Sync started ...");
+    public ResponseEntity<?> autoSyncTask(@RequestParam(name = "cron-exp") String cronSxp) {
+        LOGGER.info("Scheduling Sync with cron " + cronSxp);
         Map<String, String> response = new HashMap<>();
 
 
-        try (QueryCursor<Cache.Entry<Integer, BoardBasis>> cursor = boardBasisIgniteCache.query(new ScanQuery<Integer, BoardBasis>((k, p) -> !p.isSync()))) {
-            int i = 0;
-            for (Cache.Entry<Integer, BoardBasis> p : cursor) {
-                BoardBasis boardBasis = p.getValue();
-                boardBasisRepository.save(boardBasis);
-                boardBasis.setSync(true);
-                boardBasisIgniteCache.put(boardBasis.getMealBasisId(), boardBasis);
-                i++;
-            }
-            response.put("BoardBasis", String.valueOf(i));
-        }
-
-        try (QueryCursor<Cache.Entry<ContractPK, Contract>> cursor = contractIgniteCache.query(new ScanQuery<ContractPK, Contract>((k, p) -> !p.isSync()))) {
-            int i = 0;
-            for (Cache.Entry<ContractPK, Contract> p : cursor) {
-                Contract contract = p.getValue();
-                contractRepository.save(contract);
-                contract.setSync(true);
-                contractIgniteCache.put(contract.getContractPK(), contract);
-                i++;
-            }
-            response.put("Contract", String.valueOf(i));
-        }
-
-        try (QueryCursor<Cache.Entry<Integer, Property>> cursor = propertyIgniteCache.query(new ScanQuery<Integer, Property>((k, p) -> !p.isSync()))) {
-            int i = 0;
-            for (Cache.Entry<Integer, Property> p : cursor) {
-                Property property = p.getValue();
-                propertyRepository.save(property);
-                property.setSync(true);
-                propertyIgniteCache.put(property.getPropertyId(), property);
-                i++;
-            }
-            response.put("Property", String.valueOf(i));
-        }
-
-        try (QueryCursor<Cache.Entry<Integer, PropertyRoomType>> cursor = propertyIgniteCache.query(new ScanQuery<Integer, PropertyRoomType>((k, p) -> !p.isSync()))) {
-            int i = 0;
-            for (Cache.Entry<Integer, PropertyRoomType> p : cursor) {
-                PropertyRoomType propertyRoomType = p.getValue();
-                propertyRoomTypeRepository.save(propertyRoomType);
-                propertyRoomType.setSync(true);
-                propertyRoomTypeIgniteCache.put(propertyRoomType.getRoomTypeId(), propertyRoomType);
-                i++;
-            }
-            response.put("Property", String.valueOf(i));
+        try {
+            JobDetail job = JobBuilder.newJob(SnapshotJob.class)
+                    .withIdentity("sync_job", "group1").build();
+            Trigger trigger = TriggerBuilder
+                    .newTrigger()
+                    .withIdentity("trigger1", "group1")
+                    .withSchedule(
+                            CronScheduleBuilder.cronSchedule(cronSxp))
+                    .build();
+            Scheduler scheduler = new StdSchedulerFactory().getScheduler();
+            scheduler.start();
+            scheduler.scheduleJob(job, trigger);
+            response.put("message", "Sync scheduled.");
+        } catch (Exception e) {
+            LOGGER.error("Error: " + e.getMessage());
+            response.put("error", e.getMessage());
+            e.printStackTrace();
         }
 
 
-        LOGGER.info("Sync complete with status " + response);
+        LOGGER.info("Sync scheduled.");
+        return new ResponseEntity<Object>(response, HttpStatus.OK);
+    }
+
+
+    @PostMapping(path = "/syncstop", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public ResponseEntity<?> autoSyncTaskStop() {
+        LOGGER.info("Stopping scheduling job");
+        Map<String, String> response = new HashMap<>();
+            try {
+                Scheduler scheduler = new StdSchedulerFactory().getScheduler();
+                scheduler.unscheduleJob(new TriggerKey("trigger1", "group1"));
+                scheduler.deleteJob(new JobKey("sync_job", "group1"));
+                scheduler.shutdown();
+                response.put("message", "Sync stopped.");
+            } catch (Exception e) {
+                LOGGER.error("Error: " + e.getMessage());
+                response.put("error", e.getMessage());
+                e.printStackTrace();
+            }
+            LOGGER.info("Sync stopped.");
         return new ResponseEntity<Object>(response, HttpStatus.OK);
     }
 }
